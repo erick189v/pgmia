@@ -1,3 +1,4 @@
+import { HeaderBackButton } from "@react-navigation/elements";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useLayoutEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
@@ -12,7 +13,14 @@ const EventDetailScreen = () => {
     // title for event item page
     useLayoutEffect(()=>{
         navigation.setOptions({
-            headerTitle: "new title"
+            headerTitle: "new title",
+            // back-button
+            headerLeft: () => (
+                <HeaderBackButton
+                    tintColor="white"
+                    onPress={()=>navigation.goBack()}
+                />
+            )
         })
     })
 
